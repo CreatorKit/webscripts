@@ -5,7 +5,7 @@ function provision_constrained()
 	local selected_device_id_array = cgilua.POST.device_id
 	local tempTable = {}
 	local timeout = 60000
-	local fcap_string, fcap_code, fcap_found, ret, constrained_dev_id,
+	local key_string, fcap_code, key_found, device_id, licensee_code, ret, constrained_dev_id,
 		provision_status_code, constrained_dev_type = "Unknown device"
 
 	if type(selected_device_id_array) == "string"
@@ -20,7 +20,7 @@ function provision_constrained()
 		return 254
 	end
 
-	-- Get fcap from flow_access.cfg
+	-- Get fcap and device id from flow_access.cfg
 	local file = io.open("/etc/lwm2m/flow_access.cfg", "r")
 	if not file then
 		conn:close()
@@ -32,13 +32,39 @@ function provision_constrained()
 
 		if line == nil then break end
 
-		fcap_found = string.find(line, "FCAP")
-		if fcap_found ~= nil then
-			fcap_string = line:match('%b\"\"')
-			fcap_code = fcap_string:gsub("\"", "")
+		key_found = string.find(line, "FCAP")
+		if key_found ~= nil then
+			key_string = line:match('%b\"\"')
+			fcap_code = key_string:gsub("\"", "")
+		end
+
+		key_found = string.find(line, "DeviceID")
+		if key_found ~= nil then
+			key_string = line:match('%b\"\"')
+			device_id = key_string:gsub("\"", "")
 		end
 	end
 
+	-- Get licensee id from provision.cfg
+	local file = io.open("/etc/lwm2m/provision.cfg", "r")
+	if not file then
+		conn:close()
+		return 1
+	end
+
+	while true do
+		local line = file:read("*l")
+
+		if line == nil then break end
+
+		key_found = string.find(line, "LicenseeId")
+		if key_found ~= nil then
+			key_string = line:match('%b\"\"')
+			licensee_code = key_string:gsub("\"", "")
+		end
+	end
+
+	licensee_code = tonumber(licensee_code);
 
 	local count = table.getn(selected_device_id_array)
 	for i = 1, count do
@@ -57,7 +83,8 @@ function provision_constrained()
 
 		-- Call provision constrained device function registered on ubus
 		ret = conn:call("flow_device_manager", "provision_constrained_device", {fcap = fcap_code,
-			licensee_id = 7, device_type = constrained_dev_type,  client_id = constrained_dev_id})
+			licensee_id = licensee_code, device_type = constrained_dev_type,
+			client_id = constrained_dev_id, parent_id = device_id})
 
 		if ret ~= nil then
 			provision_status_code = ret["status"]
