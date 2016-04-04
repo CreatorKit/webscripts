@@ -112,7 +112,7 @@ function provision_constrained()
 		end
 
 		-- Call provision constrained device function registered on ubus
-		ret = conn:call("flow_device_manager", "provision_constrained_device", {fcap = fcap_code,
+		ret = conn:call("device_manager", "provision_constrained_device", {fcap = fcap_code,
 			licensee_id = licensee_code, device_type = constrained_dev_type,
 			client_id = constrained_dev_id, parent_id = device_id})
 

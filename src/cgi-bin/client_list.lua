@@ -39,7 +39,7 @@ function get_client_list()
 		return false
 	end
 
-	ret = conn:call("flow_device_manager", "get_client_list", {})
+	ret = conn:call("device_manager", "get_client_list", {})
 	conn:close()
 	return ret["clients"]
 end
