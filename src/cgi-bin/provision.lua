@@ -39,7 +39,7 @@ function is_gateway_device_provisioned()
 		return false
 	end
 
-	ret = conn:call("flow_device_manager", "is_gateway_device_provisioned", {})
+	ret = conn:call("device_manager", "is_gateway_device_provisioned", {})
 	conn:close()
 	return ret["provision_status"]
 end
@@ -98,7 +98,7 @@ function provision()
 	end
 
 	-- Call provision gateway device function registered on ubus
-	ret = conn:call("flow_device_manager", "provision_gateway_device", {device_name = name,
+	ret = conn:call("device_manager", "provision_gateway_device", {device_name = name,
 		device_type = deviceType, licensee_id = id, fcap = regcode,
 		licensee_secret = licenseeSecret})
 
