@@ -34,7 +34,7 @@ function provision_constrained()
 	local action_type = cgilua.POST.config_action
 	local selected_device_id_array = cgilua.POST.device_id
 	local tempTable = {}
-	local timeout = 60000
+	local timeout = 70000
 	local key_string, fcap_code, key_found, device_id, licensee_code, ret, constrained_dev_id,
 		provision_status_code, constrained_dev_type = "Unknown device"
 
@@ -114,7 +114,7 @@ function provision_constrained()
 		-- Call provision constrained device function registered on ubus
 		ret = conn:call("device_manager", "provision_constrained_device", {fcap = fcap_code,
 			licensee_id = licensee_code, device_type = constrained_dev_type,
-			client_id = constrained_dev_id, parent_id = device_id})
+			client_id = constrained_dev_id, parent_id = device_id, timeout = timeout})
 
 		if ret ~= nil then
 			provision_status_code = ret["status"]
