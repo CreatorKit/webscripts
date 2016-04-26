@@ -21,6 +21,9 @@ Creator Kit uses the <a href="http://wiki.openwrt.org/doc/howto/http.uhttpd">uht
 Connect your Ci40 to a network using Ethernet. Obtain the IP address of your Ci40 using "ifconfig" command from its serial console
 
 Provisioning webpages can be accessed from your Ci40 by entering its IP address on a web browser which should re-direct to the following url:
-```
-http://<Ip Address>/cgi-bin/index.lp
-```
+
+    http://<Ip Address>/cgi-bin/index.lp
+
+## Provisioning Ci40
+
+Refer to the [Provisioning Ci40](https://docs.imgcreator.io/creator/creatorKit/toolbox/#provisioning-ci40) section on the IMG Creator Docs website.
