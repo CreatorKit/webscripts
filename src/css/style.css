@@ -221,7 +221,7 @@ ol li {
 @media (min-width: 768px){
 	.c-logo {
 		display:inline-block;
-		background:url("../image/flowlogo.png") no-repeat;
+		background:url("../image/creatorlogo.png") no-repeat;
 		height: 43px;
 		width: 150px;
 		margin-top: 41px;
@@ -252,7 +252,7 @@ ol li {
 @media (max-width: 767px){
 	.c-logo {
 		display:inline-block;
-		background:url("../image/flowlogo-mobile.png") no-repeat;
+		background:url("../image/creatorlogo-mobile.png") no-repeat;
 		height: 33px;
 		width: 111px;
 		margin-top: 19px;
