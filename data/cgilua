@@ -1,0 +1,6 @@
+#!/bin/sh
+
+LUA_PATH="/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua;/usr/lib/lua/?.lua;/usr/lib/lua/?/init.lua;./?.lua;$LUA_PATH"
+LUA_CPATH="/usr/lib/lua/5.1/?.so;/usr/lib/lua/?.so;$LUA_CPATH"
+export LUA_PATH LUA_CPATH
+exec "/usr/bin/lua" "/usr/bin/cgilua.cgi" "$@"

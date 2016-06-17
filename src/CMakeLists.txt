@@ -1,0 +1,17 @@
+# Add install targets
+######################
+
+SET(DIRS cgi-bin javascript css image)
+
+FOREACH(DIR ${DIRS})
+  FILE(GLOB DEPLOY_FILES_AND_DIRS "${DIR}/*")
+  FOREACH(ITEM ${DEPLOY_FILES_AND_DIRS})
+    IF(NOT IS_DIRECTORY "${ITEM}" )
+      LIST(APPEND FILES_TO_DEPLOY "${ITEM}")
+    ENDIF()
+  ENDFOREACH()
+  INSTALL(FILES ${FILES_TO_DEPLOY} DESTINATION /var/www/${DIR})
+  SET(FILES_TO_DEPLOY)
+ENDFOREACH()
+
+INSTALL(FILES index.html DESTINATION /var/www)
