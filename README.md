@@ -15,6 +15,7 @@ Creator Kit uses the <a href="http://wiki.openwrt.org/doc/howto/http.uhttpd">uht
 | Revision  | Changes from previous revision |
 | :----     | :------------------------------|
 | 0.9.0     | External Beta Trial Release    | 
+| 0.9.1     | Release candidate for launch   | 
 
 ## Access to Ci40 Webpages
 
