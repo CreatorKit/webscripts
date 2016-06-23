@@ -6,7 +6,7 @@ PROJECT(webscripts)
 
 SET(webscripts_VERSION_MAJOR 0)
 SET(webscripts_VERSION_MINOR 9)
-SET(webscripts_VERSION_PATCH 0)
+SET(webscripts_VERSION_PATCH 1)
 SET(webscripts_VERSION
     ${webscripts_VERSION_MAJOR}.${webscripts_VERSION_MINOR}.${webscripts_VERSION_PATCH})
 
