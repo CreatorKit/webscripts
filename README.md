@@ -2,7 +2,7 @@
 
 ## Overview
 
-This package provides the web interface for provisioning Creator Kit devices. It includes webpages as well as webservices.
+This package provides the web interface for onboarding and provisioning Creator Kit devices. It includes webpages as well as webservices.
 
  - Webpages provide a visual interface via web browsers.
 
@@ -19,6 +19,16 @@ Provisioning webpages can be accessed from your Ci40 by entering its IP address 
 
     http://<Ip Address>/cgi-bin/index.lp
 
-## Provisioning Ci40
+## WiFi Onboarding
 
-Refer to the [Provisioning Ci40](https://docs.imgcreator.io/creator/creator-kit/toolbox/#registering-ci40) section on the IMG Creator Docs website.
+If there is no ethernet connected, you can also use the SoftAp to onboard the device.
+
+  - Connect to CreatorAP from your WiFi enabled device.
+  - Type http://10.10.10.1/ in the browser. It should redirect to http://10.10.10.1/cgi-bin/index_wifi.lp
+  - Select the Wireless network from the scanned list of available networks.
+  - Enter the necessary credentials such as password etc and press Save.
+  - It should connect to the selected wireless network.
+
+### Outstanding issues
+  - WiFi MAC address is hardcoded to 00:11:22:33:44:55.
+  - SoftAp is always active even after connecting to WiFi network.
