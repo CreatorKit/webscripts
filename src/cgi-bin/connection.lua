@@ -21,6 +21,13 @@ function configure_network(network, encryption, key)
 	else
 		uci.delete("wireless", "sta", "key")
 	end
+	local file = io.open("/etc/config/MAC_0", "r")
+	if not file then
+		return 1
+	end
+	local mac_address = file:read "*a"
+	file:close()
+	uci.set("wireless", "sta", "macaddr", mac_address)
 	uci.save("wireless")
 	uci.commit("wireless")
 end
