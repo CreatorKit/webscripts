@@ -21,7 +21,8 @@ function configure_network(network, encryption, key)
 	else
 		uci.delete("wireless", "sta", "key")
 	end
-	local file = io.open("/etc/config/MAC_0", "r")
+	os.execute(". /usr/bin/get_mac.sh 0")
+	local file = io.open("/tmp/MAC", "r")
 	if not file then
 		return 1
 	end
