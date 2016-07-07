@@ -30,5 +30,4 @@ If there is no ethernet connected, you can also use the SoftAp to onboard the de
   - It should connect to the selected wireless network.
 
 ### Outstanding issues
-  - WiFi MAC address is hardcoded to 00:11:22:33:44:55.
   - SoftAp is always active even after connecting to WiFi network.
