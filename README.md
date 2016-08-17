@@ -24,7 +24,7 @@ Provisioning webpages can be accessed from your Ci40 by entering its IP address 
 If there is no ethernet connected, you can also use the SoftAp to onboard the device.
 
   - Connect to CreatorAP from your WiFi enabled device.
-  - Type http://10.10.10.1/ in the browser. It should redirect to http://10.10.10.1/cgi-bin/index_wifi.lp
+  - Type http://10.10.10.1/webscripts in the browser. It should redirect to http://10.10.10.1/cgi-bin/index_wifi.lp
   - Select the Wireless network from the scanned list of available networks.
   - Enter the necessary credentials such as password etc and press Save.
   - It should connect to the selected wireless network.
