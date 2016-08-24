@@ -15,9 +15,9 @@ Creator Kit uses the <a href="http://wiki.openwrt.org/doc/howto/http.uhttpd">uht
 
 Connect your Ci40 to a network using Ethernet. Obtain the IP address of your Ci40 using "ifconfig" command from its serial console
 
-Provisioning webpages can be accessed from your Ci40 by entering its IP address on a web browser which should re-direct to the following url:
+Onboarding webpages can be accessed from your Ci40 by entering `<IP address>/webscripts` on a web browser which should re-direct to the following url:
 
-    http://<Ip Address>/cgi-bin/index.lp
+    http://<Ip Address>/cgi-bin/index_wifi.lp
 
 ## WiFi Onboarding
 
